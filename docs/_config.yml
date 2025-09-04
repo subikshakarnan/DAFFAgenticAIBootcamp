@@ -1,23 +1,15 @@
 title: "Watsonx Agentic AI Course"
 description: "A comprehensive course on building AI agents with Watsonx - from no-code to pro-code solutions"
-baseurl: ""
-url: "https://nicknochnack.github.io/6-08-2025-DTA"
+baseurl: "/WatsonxAgenticCrashCourse"
+url: "https://nicknochnack.github.io"
 
 # Build settings
 markdown: kramdown
-remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs
 
 # Just the Docs theme configuration
 color_scheme: nil
 search_enabled: true
-search:
-  heading_level: 2
-  previews: 2
-  preview_words_before: 3
-  preview_words_after: 3
-  tokenizer_separator: /[\s/]+/
-  rel_url: true
-  button: false
 
 # Navigation structure
 nav_sort: case_insensitive
@@ -32,16 +24,13 @@ footer_content: "Copyright &copy; 2025 Nick Renotte. Distributed under the <a hr
 # Aux links for the upper right navigation
 aux_links:
   "Course on GitHub":
-    - "https://github.com/nicknochnack/6-08-2025-DTA"
+    - "https://github.com/nicknochnack/WatsonxAgenticCrashCourse"
 
-# Makes Aux links open in a new tab. Default is false
+# Makes Aux links open in a new tab
 aux_links_new_tab: true
 
-# Enable or disable heading anchors
+# Enable heading anchors
 heading_anchors: true
-
-# Enable or disable the site search
-search_enabled: true
 
 plugins:
   - jekyll-feed
