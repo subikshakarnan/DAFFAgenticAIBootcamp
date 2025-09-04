@@ -22,19 +22,13 @@ llm = ChatWatsonx(
 tools = [GovSearch]
 tool_node = ToolNode(tools) 
 
-llm_with_tools = llm.bind_tools(tools) 
+llmwithtools = llm.bind_tools(tools) 
 
 class State(dict):
     messages: Annotated[list, add_messages]
 
-def chatbot(state:State):
-    messages = state['messages']
-    if not messages or not isinstance(messages[0], SystemMessage):
-        system_msg = SystemMessage(content="You are a helpful assistant with access to a range of tools. Use them as needed to help the user accomplish their task as fast as possible.")
-        messages = [system_msg] + messages
-    
-    response = llm_with_tools.invoke(messages)
-    return {'messages': [response]}
+def chatbot(state:State): 
+    return {'messages':[llmwithtools.invoke(state['messages'])]}
 
 def router(state:State):
     last_message = state['messages'][-1]
@@ -59,12 +53,9 @@ if __name__ == '__main__':
         # Use proper message format
         result = graph.invoke(
             {"messages": [
-                {'role':'system', 'content':'You are a helpful assistant designed to assist with user queries'}, 
+                {'role':'system', 'content':'You are a helpful assistant with access to a range of tools. Use them as needed to help the user accomplish their task as fast as possible.'}, 
                 {'role':'user', 'content':prompt}
                 ]},  
             config={"configurable": {"thread_id": 1234}}
         ) 
         print(Fore.LIGHTMAGENTA_EX + result['messages'][-1].content + Fore.RESET) 
-
-# if __name__ == '__main__': 
-#     print(searcher.invoke({"url":"https:hola", "search_term":"abc123"}))

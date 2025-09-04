@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+        <!-- Course Navigation -->
+        {% if page.title != "Home" %}
+        <nav class="course-nav">
+          <div class="nav-container">
+            <a href="{{ "/" | relative_url }}" class="nav-home">🏠 Course Home</a>
+            
+            <div class="nav-sections">
+              {% assign current_page = page.title %}
+              {% for section in site.course.sections %}
+                {% assign is_current = false %}
+                {% if section.title == current_page or section.page == page.url %}
+                  {% assign is_current = true %}
+                {% endif %}
+                
+                <a href="{{ section.page }}.html" class="nav-section {% if is_current %}current{% endif %}">
+                  {{ section.title }}
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </nav>
+        {% endif %}
+
+        {{ content }}
+
+        <!-- Course Progress Navigation -->
+        {% if page.title != "Home" %}
+        <nav class="course-progress">
+          {% assign sections = site.course.sections %}
+          {% assign current_index = -1 %}
+          {% for section in sections %}
+            {% if section.title == page.title %}
+              {% assign current_index = forloop.index0 %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          
+          <div class="progress-nav">
+            {% if current_index > 0 %}
+              {% assign prev_section = sections[current_index-1] %}
+              <a href="{{ prev_section.page }}.html" class="nav-prev">
+                ← {{ prev_section.title }}
+              </a>
+            {% endif %}
+            
+            {% if current_index >= 0 and current_index < sections.size-1 %}
+              {% assign next_section = sections[current_index+1] %}
+              <a href="{{ next_section.page }}.html" class="nav-next">
+                {{ next_section.title }} →
+              </a>
+            {% endif %}
+          </div>
+        </nav>
+        {% endif %}
+
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+    <style>
+      .course-nav {
+        background: #f8f9fa;
+        border-bottom: 2px solid #e9ecef;
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-home {
+        background: #007bff;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .nav-home:hover {
+        background: #0056b3;
+        color: white;
+      }
+
+      .nav-sections {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-section {
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #495057;
+        background: #e9ecef;
+        transition: all 0.3s;
+        font-weight: 400;
+      }
+
+      .nav-section:hover {
+        background: #dee2e6;
+        color: #495057;
+      }
+
+      .nav-section.current {
+        background: #28a745;
+        color: white;
+        font-weight: 500;
+      }
+
+      .course-progress {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid #e9ecef;
+      }
+
+      .progress-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-prev, .nav-next {
+        padding: 1rem 1.5rem;
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #495057;
+        font-weight: 500;
+        transition: all 0.3s;
+        min-width: 150px;
+        text-align: center;
+      }
+
+      .nav-prev:hover, .nav-next:hover {
+        background: #e9ecef;
+        color: #495057;
+        border-color: #adb5bd;
+      }
+
+      .nav-prev {
+        margin-right: auto;
+      }
+
+      .nav-next {
+        margin-left: auto;
+      }
+
+      @media (max-width: 768px) {
+        .nav-container {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+
+        .nav-sections {
+          width: 100%;
+        }
+
+        .nav-section {
+          flex: 1;
+          text-align: center;
+          min-width: calc(50% - 0.5rem);
+        }
+
+        .progress-nav {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav-prev, .nav-next {
+          width: 100%;
+          margin: 0;
+        }
+      }
+    </style>
+
+  </body>
+
+</html> 

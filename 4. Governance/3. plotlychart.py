@@ -4,6 +4,7 @@ import plotly.express as px
 from dash import Dash, html, dcc, Input, Output, callback
 import os 
 import pandas as pd 
+import sys 
 
 class Dataset: 
     def __init__(self, folder_path:str, metrics:list): 
@@ -38,12 +39,12 @@ class Dataset:
                     'metric': metric_name,
                     'value': metric_value
                 })
-
         return dataframe_data 
 
 
+
 if __name__ == "__main__": 
-    dataset = Dataset('wxgov_traces', ['context_relevance', 'answer_relevance', 'faithfulness'])
+    dataset = Dataset('traces', ['context_relevance', 'answer_relevance', 'faithfulness'])
     result = dataset.get_data() 
     df = pd.DataFrame(result)
     

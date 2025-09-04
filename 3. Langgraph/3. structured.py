@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 import os 
 from colorama import Fore 
 from src.tools.github import trending
+import json
 
 load_dotenv() 
 
@@ -31,6 +32,12 @@ tool_node = ToolNode(tools)
 llmwithtools = llm.bind_tools(tools)
 llmwithstructure = llm.with_structured_output(GitHubRepos)
 
+def structured_output_template(response:str) -> str: 
+   return f"""You are an assistant designed to assist with analysing github projects.
+    Return the repo name and stars as a json object. 
+
+    {response}
+    """
 
 class State(dict): 
     messages: Annotated[list, add_messages]
@@ -39,8 +46,9 @@ def chatbot(state:State):
     return {'messages':[llmwithtools.invoke(state['messages'])]}
 
 def outputparser(state:State): 
-    print(state) 
-    return {'messages':[llmwithstructure.invoke(state['messages'])]}
+    last_message = state['messages'][-1]
+    res = llmwithstructure.invoke(structured_output_template(last_message.content))
+    return {'messages': json.dumps(res.model_dump(), indent=2)}
 
 def router(state:State):
     last_message = state['messages'][-1]

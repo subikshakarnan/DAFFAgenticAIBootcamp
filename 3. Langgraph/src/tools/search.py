@@ -1,5 +1,5 @@
 from langchain.tools import tool 
-from utils.linkutils import links_parser 
+from src.utils.linkutils import links_parser 
 import requests
 from bs4 import BeautifulSoup
 import html2text

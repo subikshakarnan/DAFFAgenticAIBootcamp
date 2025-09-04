@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from utils.linkutils import url_to_markdown
+from src.utils.linkutils import url_to_markdown
 from langchain_ibm import ChatWatsonx 
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv

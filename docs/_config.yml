@@ -1,0 +1,45 @@
+title: "Watsonx Agentic AI Course"
+description: "A comprehensive course on building AI agents with Watsonx - from no-code to pro-code solutions"
+baseurl: "watsonxagenticcc"
+url: "https://nicknochnack.github.io"
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Navigation
+header_pages:
+  - index.md
+  - orchestrate.md
+  - langflow.md
+  - langgraph.md
+  - governance.md
+
+# Course settings
+course:
+  sections:
+    - title: "1. Orchestrate"
+      description: "No-code agent building with Watsonx Orchestrate"
+      page: orchestrate
+    - title: "2. Langflow"
+      description: "Low-code visual agent development"
+      page: langflow
+    - title: "3. Langgraph"
+      description: "Pro-code agent development with Python"
+      page: langgraph
+    - title: "4. Governance"
+      description: "AI governance and evaluation strategies"
+      page: governance
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .gitignore 
