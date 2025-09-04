@@ -1,13 +1,14 @@
 title: "Watsonx Agentic AI Course"
 description: "A comprehensive course on building AI agents with Watsonx - from no-code to pro-code solutions"
-baseurl: "/WatsonxAgenticCrashCourse"
+baseurl: "/watsonxagenticcc"
 url: "https://nicknochnack.github.io"
 
 # Build settings
 markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Navigation
 header_pages:
