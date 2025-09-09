@@ -51,13 +51,13 @@ Essential skills for deploying AI agents responsibly in production environments.
 Before you begin, make sure you have:
 - A basic understanding of AI concepts
 - Access to Watsonx services (instructions provided in each section)
-- Python 3.8+ installed for the Langgraph section
+- Python 3.11+ installed for the Langgraph section
 - Git for cloning the repository
 
 ## Repository Structure
 
 ```
-6-08-2025-DTA/
+WatsonxAgenticCrashCourse/
 ├── 1. Orchestrate/     # No-code agent building
 ├── 2. Langflow/        # Low-code visual development
 ├── 3. Langgraph/       # Pro-code Python development
@@ -69,8 +69,7 @@ Before you begin, make sure you have:
 
 1. **Clone the repository**: 
    ```bash
-   git clone https://github.com/nicknochnack/6-08-2025-DTA.git
-   cd 6-08-2025-DTA
+   git clone https://github.com/nicknochnack/WatsonxAgenticCrashCourse . 
    ```
 
 2. **Install dependencies**:

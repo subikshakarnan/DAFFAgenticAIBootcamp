@@ -40,9 +40,11 @@ cd "3. Langgraph"
 # Install dependencies (if not already done)
 uv sync
 
-# Set up your environment variables
-export OPENAI_API_KEY="your-openai-api-key"
-export GITHUB_TOKEN="your-github-token"  # For GitHub integration
+# Set up your environment variables by updating .env_sample to .env and filling in these values 
+WATSONX_APIKEY="<YOUR WATSONX API KEY HERE>"
+WATSONX_PROJECT_ID="<YOUR WATSONX PROJECT ID HERE>"
+MODEL_ID=meta-llama/llama-4-maverick-17b-128e-instruct-fp8
+WATSONX_URL=https://us-south.ml.cloud.ibm.com
 ```
 
 ## Progressive Learning Path
@@ -71,8 +73,8 @@ python "0. basic.py"
 - Memory retrieval and context handling
 
 **Test prompts**:
-1. `"My name is Nick, who is Nick?"`
-2. Continue the conversation to test memory retention
+1. `"My name is Nick"`
+2. Continue the conversation to test memory retention e.g. `"What's my name?"`
 
 **Key concepts**:
 - **Checkpointing**: Save conversation state

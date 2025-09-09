@@ -30,22 +30,6 @@ Watsonx Orchestrate is IBM's no-code platform for building AI-powered agents and
 
 Before we begin, you'll need to set up your environment:
 
-1. **Install UV package manager**:
-   ```bash
-   pip install uv
-   ```
-
-2. **Clone the repository**:
-   ```bash
-   git clone https://github.com/nicknochnack/6-08-2025-DTA.git
-   cd 6-08-2025-DTA
-   ```
-
-3. **Install dependencies**:
-   ```bash
-   uv sync
-   ```
-
 ## Course Exercises
 
 ### Exercise A: Basic Agent Interactions

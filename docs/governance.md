@@ -29,20 +29,6 @@ AI governance is critical for:
 - **Ethical AI deployment** with bias detection and mitigation
 - **Transparency and explainability** for stakeholders
 
-## Setup Instructions
-
-Navigate to the Governance directory and set up the evaluation environment:
-
-```bash
-cd "4. Governance"
-
-# Install additional dependencies for evaluation
-pip install trulens-eval plotly chromadb
-
-# Set up your API keys for evaluation services
-export OPENAI_API_KEY="your-openai-api-key"
-export TRULENS_API_KEY="your-trulens-api-key"  # Optional for advanced features
-```
 
 ## Evaluation Framework
 
@@ -176,68 +162,6 @@ Traces are stored in:
 - Model improvement recommendations
 - Compliance reporting
 
-## Implementation Examples
-
-### Setting up RAG Evaluation
-```python
-from trulens_eval import TruLlama, Feedback, Tru
-from trulens_eval.feedback import Groundedness
-
-# Initialize evaluator
-tru = Tru()
-
-# Define feedback functions
-groundedness = Groundedness()
-f_groundedness = Feedback(groundedness.groundedness_measure)
-
-# Wrap your RAG application
-tru_query_engine = TruLlama(query_engine, feedbacks=[f_groundedness])
-
-# Run evaluation
-with tru_query_engine as recording:
-    response = query_engine.query("Your test question")
-```
-
-### Creating Performance Dashboards
-```python
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-
-# Create performance dashboard
-fig = make_subplots(
-    rows=2, cols=2,
-    subplot_titles=('Response Time', 'Accuracy', 'Throughput', 'Error Rate')
-)
-
-# Add metrics visualization
-fig.add_trace(go.Scatter(x=timestamps, y=response_times), row=1, col=1)
-fig.add_trace(go.Scatter(x=timestamps, y=accuracy_scores), row=1, col=2)
-
-fig.show()
-```
-
-### Automated Evaluation Pipeline
-```python
-def evaluate_agent_performance(agent, test_queries):
-    results = []
-    for query in test_queries:
-        start_time = time.time()
-        response = agent.invoke(query)
-        response_time = time.time() - start_time
-        
-        # Evaluate response quality
-        metrics = {
-            'query': query,
-            'response': response,
-            'response_time': response_time,
-            'relevance': evaluate_relevance(query, response),
-            'accuracy': evaluate_accuracy(response),
-        }
-        results.append(metrics)
-    
-    return results
-```
-
 ## Governance Best Practices
 
 ### 1. Evaluation Strategy
@@ -263,39 +187,6 @@ def evaluate_agent_performance(agent, test_queries):
 - **Rollback capabilities**: Ability to revert to previous versions
 - **Root cause analysis**: Investigate and learn from failures
 - **Communication plans**: Keep stakeholders informed during incidents
-
-## Evaluation Tools and Frameworks
-
-### TruLens
-- Comprehensive LLM application evaluation
-- RAG-specific metrics and dashboards
-- Real-time monitoring capabilities
-
-### Custom Evaluation
-- Domain-specific metrics
-- Business logic validation
-- Cost and performance optimization
-
-### Monitoring Platforms
-- **Weights & Biases**: ML experiment tracking
-- **MLflow**: Model lifecycle management
-- **Grafana**: Real-time dashboards
-- **Custom solutions**: Tailored monitoring systems
-
-## Sample Evaluation Results
-
-Based on the trace files in the repository:
-
-### Performance Metrics
-- **Average Response Time**: 1.2 seconds
-- **Success Rate**: 94.5%
-- **Context Relevance**: 0.87 (out of 1.0)
-- **Answer Relevance**: 0.91 (out of 1.0)
-
-### Common Issues Identified
-1. **Slow responses** for complex queries (>3 seconds)
-2. **Context retrieval failures** in 5.5% of cases
-3. **Hallucination instances** in financial data queries
 
 ## Production Deployment Checklist
 
@@ -347,6 +238,5 @@ Governance implementation files:
 
 ## Additional Resources
 
-- [TruLens Documentation](https://trulens.org/) - Comprehensive evaluation framework
 - [Responsible AI Guidelines](https://www.ibm.com/artificial-intelligence/ethics) - IBM's responsible AI principles
 - [AI Governance Framework](https://www.nist.gov/itl/ai-risk-management-framework) - NIST AI Risk Management Framework

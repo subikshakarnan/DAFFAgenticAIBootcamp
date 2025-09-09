@@ -31,9 +31,9 @@ Langflow is a visual framework for building multi-agent and RAG applications. It
 
 Getting started with Langflow is straightforward:
 
-### Option 1: DataStax Astra (Recommended)
+### Option 1: DataStax Trial (Recommended)
 
-1. **Sign up for DataStax Astra**:
+1. **Sign up for a Langflow Trial via the DataStax Website**:
    ```
    https://astra.datastax.com/signup?type=langflow
    ```
