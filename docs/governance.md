@@ -36,6 +36,8 @@ AI governance is critical for:
 
 ### 1. Syntactic Evaluation (`1. syntactic.py`)
 
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7351866408395264000?compact=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Tool Syntactic Accuracy"></iframe></div>
+
 **Objective**: Evaluate basic agent functionality and response consistency
 
 **What you'll learn**:
@@ -53,6 +55,8 @@ AI governance is critical for:
 - **Basic functionality**: Verify core agent capabilities work reliably
 
 ### 2. RAG Triad Evaluation (`2. ragtriad.py`)
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7353928857927802880?compact=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="RAG Triad"></iframe></div>
 
 **Objective**: Comprehensive evaluation of RAG (Retrieval Augmented Generation) systems
 
