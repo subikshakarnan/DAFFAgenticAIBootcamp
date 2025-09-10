@@ -66,7 +66,7 @@ Then open your browser to `http://localhost:7860`
 
 First up, we'll create a simple chatbot with no tools - this establishes the groundwork for more complex agents.
 
-![Exercise A - Basic Prompting Workflow](Exercise A.png)
+![Exercise A - Basic Prompting Workflow](https://i.imgur.com/DBlvM6A.png)
 *Basic prompting workflow showing Chat Input → IBM watsonx.ai → Chat Output*
 
 **System Prompt**:
@@ -96,7 +96,7 @@ You are a helpful agent designed to assist with user queries.
 
 Now we enhance our basic chatbot by converting it into an agent with tool access. We'll add the Arxiv tool for researching the latest research papers.
 
-![Exercise B - Agent with Tools](Exercise B.png)
+![Exercise B - Agent with Tools](https://i.imgur.com/xRJe30m.png)
 *Enhanced workflow with Agent node orchestrating IBM watsonx.ai and Arxiv tool*
 
 **Additional Nodes Required**:
@@ -120,10 +120,12 @@ Now we enhance our basic chatbot by converting it into an agent with tool access
 
 This exercise demonstrates sophisticated prompt engineering for post-processing and integrating web scraping capabilities.
 
-![Exercise C - Multi Tool Setup](Exercise C - Multi Tool.png)
+
+![Exercise C - Multi Tool Setup](https://i.imgur.com/UkLWEDP.png)
 *Multi-tool workflow with Arxiv, Agent, FirecrawlScrapeAPI, and post-processing*
 
-![Exercise C - Output Parsing](Exercise C - Output Parsing.png)
+
+![Exercise C - Output Parsing](https://i.imgur.com/5DLyYqI.png)
 *Output parsing and evaluation workflow with Prompt component for quality assessment*
 
 **Engineered Prompt**:
