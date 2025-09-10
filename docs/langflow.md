@@ -15,9 +15,9 @@ Welcome to Chapter 2! Here we'll explore **low-code visual agent development** u
 
 By the end of this chapter, you'll be able to:
 - Set up and navigate the Langflow visual interface
-- Build agent workflows using drag-and-drop components
-- Create complex agent logic without traditional coding
-- Connect multiple AI models and data sources
+- Build basic chatbots using IBM watsonx.ai models
+- Create agentic workflows with tool integration
+- Implement post-processing with advanced prompt engineering
 - Deploy and test your visual agent workflows
 
 ## What is Langflow?
@@ -60,143 +60,194 @@ Then open your browser to `http://localhost:7860`
 
 ## Course Exercises
 
-### Exercise 1: Your First Flow
+### Exercise A: Basic Prompting
 
-**Objective**: Create a simple conversational agent
+**Objective**: Create a simple chatbot to establish the groundwork for agent development
 
-**Steps**:
-1. Create a new flow in Langflow
-2. Add a Chat Input component
-3. Connect it to an LLM component (like OpenAI or Claude)
-4. Add a Chat Output component
-5. Test your basic conversational agent
+First up, we'll create a simple chatbot with no tools - this establishes the groundwork for more complex agents.
 
-**Try these prompts**:
-- "Hello, who are you?"
-- "What can you help me with?"
-- "Tell me about artificial intelligence"
+![Exercise A - Basic Prompting Workflow](Exercise A.png)
+*Basic prompting workflow showing Chat Input → IBM watsonx.ai → Chat Output*
 
-### Exercise 2: Adding Memory
+**System Prompt**:
+```
+You are a helpful agent designed to assist with user queries.
+```
 
-**Objective**: Make your agent remember conversation history
+**Nodes Required**:
+- **Chat Input** - Receives user messages
+- **IBM watsonx.ai** - Language model for processing
+- **Chat Output** - Displays agent responses
 
-**Components to use**:
-- Chat Input
-- Memory component (Session Memory or Buffer Memory)
-- LLM with memory context
-- Chat Output
+**Workflow Setup**:
+1. Add a Chat Input component
+2. Connect it to IBM watsonx.ai component
+3. Configure the system prompt in the watsonx.ai component
+4. Connect to Chat Output component
 
-**Test scenario**:
-1. "My name is [your name]"
-2. "What's the weather like?" (general question)
-3. "What's my name?" (test memory)
+**Test Prompts**:
+- "How do LLMs work?"
+- "Why is trust in AI important?"
+- "How can we detect hallucination?"
 
-### Exercise 3: RAG Implementation
+### Exercise B: Creating an Agent with Tool Nodes
 
-**Objective**: Build a Retrieval Augmented Generation system
+**Objective**: Convert the basic LLM into an intelligent agent by adding tool capabilities
 
-**Components needed**:
-- Document Loader
-- Text Splitter
-- Vector Store (like Astra DB)
-- Retriever
-- LLM with context
-- Chat components
+Now we enhance our basic chatbot by converting it into an agent with tool access. We'll add the Arxiv tool for researching the latest research papers.
 
-**Test with**:
-- Upload a document about your domain
-- Ask questions that require information from the document
-- Observe how the agent retrieves and uses relevant context
+![Exercise B - Agent with Tools](Exercise B.png)
+*Enhanced workflow with Agent node orchestrating IBM watsonx.ai and Arxiv tool*
 
-### Exercise 4: Multi-Agent Workflow
+**Additional Nodes Required**:
+- **Arxiv** - Tool for academic paper research
+- **Agent** - Orchestrates tool usage and responses
 
-**Objective**: Create agents that work together
+**Workflow Enhancement**:
+1. Replace the direct IBM watsonx.ai connection with an Agent node
+2. Connect the Arxiv tool to the Agent
+3. Configure the Agent to use IBM watsonx.ai as the underlying model
+4. Test the enhanced workflow
 
-**Example workflow**:
-- **Research Agent**: Gathers information
-- **Analysis Agent**: Processes and analyzes data
-- **Summary Agent**: Creates final output
+**Test Prompts**:
+- "What are the trending papers in machine learning governance?"
+- "Is there any new research on LLM hallucinations?"
+- "Find recent papers about AI safety and alignment"
+
+### Exercise C: Post Processing with Prompt Engineering
+
+**Objective**: Implement advanced prompt engineering for output evaluation and web scraping
+
+This exercise demonstrates sophisticated prompt engineering for post-processing and integrating web scraping capabilities.
+
+![Exercise C - Multi Tool Setup](Exercise C - Multi Tool.png)
+*Multi-tool workflow with Arxiv, Agent, FirecrawlScrapeAPI, and post-processing*
+
+![Exercise C - Output Parsing](Exercise C - Output Parsing.png)
+*Output parsing and evaluation workflow with Prompt component for quality assessment*
+
+**Engineered Prompt**:
+```
+Review the following input and rate the output on a scale of 1-10 on how much clarity it provides.
+{chat_input}
+```
+
+**Additional Nodes Required**:
+- **FirecrawlScrapeAPI** - Set to tool node for web scraping
+- **Prompt** - For advanced prompt engineering and post-processing
+
+**Workflow Enhancement**:
+1. Add FirecrawlScrapeAPI as a tool node
+2. Connect it to your existing agent
+3. Add a Prompt component for post-processing evaluation
+4. Configure the evaluation prompt template
+
+**Test Prompt**:
+```
+Summarise this page - https://www.ato.gov.au/about-ato/commitments-and-reporting/information-and-privacy/ato-ai-transparency-statement
+```
 
 ## Key Concepts
 
-### Visual Programming
-- **Component-based**: Each box represents a specific function
-- **Data flow**: Connections show how information moves
-- **Real-time testing**: See results as you build
-- **Version control**: Save and manage different versions of your flows
+### Visual Programming Progression
+
+#### Level 1: Basic Prompting
+- **Simple chat flow**: Input → LLM → Output
+- **System prompts**: Define agent behavior
+- **Direct responses**: No external tool access
+
+#### Level 2: Agentic Behavior
+- **Tool integration**: Access to external resources
+- **Decision making**: Agent chooses when to use tools
+- **Research capabilities**: Can gather current information
+
+#### Level 3: Advanced Processing
+- **Post-processing**: Evaluate and refine outputs
+- **Web scraping**: Access live web content
+- **Quality assessment**: Rate and improve responses
+
+### Component Deep Dive
+
+#### Core Components
+- **Chat Input/Output**: User interface components
+- **IBM watsonx.ai**: Enterprise-grade language model
+- **Agent**: Orchestrates multiple tools and decisions
+- **Prompt**: Advanced prompt engineering and templating
+
+#### Tool Components
+- **Arxiv**: Academic research paper search
+- **FirecrawlScrapeAPI**: Web content extraction
+- **Custom Tools**: Extensible for specific needs
+
+#### Processing Components
+- **Memory**: Conversation context management
+- **Evaluators**: Quality assessment and scoring
+- **Filters**: Content processing and refinement
 
 ### Low-Code Benefits
+
 - **Faster development**: Visual interface speeds up creation
 - **Better collaboration**: Non-technical team members can contribute
 - **Easier debugging**: Visual flow makes issues obvious
 - **Rapid prototyping**: Quick iteration and testing
+- **Enterprise integration**: Native support for IBM watsonx.ai
 
-### Flow Components
+## Advanced Workflows
 
-#### Input/Output
-- **Chat Input**: Receive user messages
-- **Text Input**: Accept text data
-- **File Input**: Upload documents
-- **Chat Output**: Display agent responses
+### Multi-Tool Research Agent
+Combine multiple tools for comprehensive research:
+1. **Arxiv** for academic papers
+2. **FirecrawlScrapeAPI** for web content
+3. **Agent** orchestrates tool selection
+4. **Post-processing** evaluates and synthesizes results
 
-#### Processing
-- **LLM**: Language model interactions
-- **Prompt Templates**: Structured prompts
-- **Text Splitter**: Break documents into chunks
-- **Retrievers**: Search and fetch relevant information
-
-#### Data & Memory
-- **Vector Stores**: Store and search embeddings
-- **Memory**: Maintain conversation context
-- **Documents**: Handle various file types
-
-## Advanced Features
-
-### Custom Components
-- Build your own components using Python
-- Share components with the community
-- Import external libraries and tools
-
-### API Integration
-- Connect to external APIs
-- Use webhooks for real-time data
-- Integrate with business systems
-
-### Deployment Options
-- Deploy as API endpoints
-- Embed in web applications
-- Export to various formats
+### Quality Assessment Pipeline
+Implement automated quality control:
+1. **Initial response** generation
+2. **Clarity evaluation** using prompt engineering
+3. **Iterative improvement** based on scores
+4. **Final output** with quality metrics
 
 ## Practice Projects
 
-### Project 1: Customer Support Bot
-Create a customer support agent that:
-- Accesses your knowledge base
-- Remembers customer context
-- Escalates complex issues
+### Project 1: Academic Research Assistant
+Build an agent that:
+- Searches academic papers via Arxiv
+- Scrapes relevant web content
+- Synthesizes findings with clarity scoring
+- Provides comprehensive research summaries
 
-### Project 2: Content Generator
-Build a content creation workflow:
-- Research topics automatically
-- Generate structured content
-- Review and refine outputs
+### Project 2: Government Policy Analyzer
+Create a workflow that:
+- Scrapes government policy documents
+- Evaluates content clarity and accessibility
+- Provides simplified summaries
+- Rates information quality
 
-### Project 3: Data Analysis Agent
-Develop an agent that:
-- Processes uploaded data files
-- Performs analysis based on user questions
-- Generates visualizations and insights
+### Project 3: AI Governance Monitor
+Develop an agent for:
+- Tracking AI policy developments
+- Analyzing transparency statements
+- Monitoring research trends
+- Providing governance insights
 
-## Debugging Tips
+## Debugging and Optimization
 
-1. **Use the Debug Panel**: Monitor data flow between components
-2. **Check Component Logs**: See what's happening inside each component
-3. **Test Incrementally**: Build and test one component at a time
-4. **Use Print Components**: Add debugging outputs to see intermediate results
+### Visual Debugging
+1. **Component inspection**: Check data flow between nodes
+2. **Message tracing**: Follow conversation paths
+3. **Tool monitoring**: Verify tool calls and responses
+4. **Performance metrics**: Monitor response times and quality
+
+### Common Issues
+- **Tool connectivity**: Ensure API keys are properly configured
+- **Prompt formatting**: Check template syntax and variables
+- **Agent routing**: Verify tool selection logic
+- **Output formatting**: Ensure consistent response structure
 
 ## Next Steps
 
-Ready to take your skills to the next level? Move on to:
+Ready to take your skills to the next level with full programming control? Move on to:
 
 **[Chapter 3: Langgraph](langgraph)** - Master pro-code agent development with Python
 
@@ -216,3 +267,4 @@ Explore the Langflow resources:
 - [Langflow Documentation](https://docs.langflow.org/) - Official documentation
 - [Community Flows](https://github.com/langflow-ai/langflow) - Example workflows from the community
 - [DataStax Langflow](https://astra.datastax.com/langflow) - Hosted Langflow service
+- [IBM watsonx.ai Integration](https://www.ibm.com/products/watsonx-ai) - Enterprise AI platform
