@@ -53,6 +53,8 @@ WATSONX_URL=https://us-south.ml.cloud.ibm.com
 
 ### 0. Basic Agent (`0. basic.py`)
 
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117630624?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langgraph1-Basic"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 **Objective**: Understand the fundamental Langgraph structure
 
 **What you'll learn**:
@@ -66,6 +68,8 @@ python "0. basic.py"
 ```
 
 ### 1. Memory Agent (`1. memory.py`)
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117630693?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langgraph2-Memory"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 **Objective**: Add persistent memory to your agent
 
@@ -85,6 +89,8 @@ python "0. basic.py"
 
 ### 2. Tool Integration (`2. tool.py`)
 
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117630713?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langgraph3-Tools"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 **Objective**: Connect your agent to external tools
 
 **What you'll learn**:
@@ -103,6 +109,8 @@ python "0. basic.py"
 - Error handling for external services
 
 ### 3. Structured Outputs (`3. structured.py`)
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1117630760?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Langgraph4-Structured"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 **Objective**: Generate type-safe, structured responses
 
@@ -316,3 +324,4 @@ Explore the Langgraph examples:
 - [Langgraph Documentation](https://langchain-ai.github.io/langgraph/) - Official documentation
 - [Python SDK Reference](https://python.langchain.com/docs/langgraph) - API reference
 - [Example Applications](https://github.com/langchain-ai/langgraph/tree/main/examples) - Community examples
+- [Nicks Langgraph Crash Course](https://youtu.be/OojcSzWrjsg?si=4DoPvGp79GxobYyB) - Need a deeper dive, I've got a full crash course here. 
