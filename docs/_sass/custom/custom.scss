@@ -1,0 +1,13 @@
+// Allow the long site title to wrap fully in the sidebar instead of being cut off
+.site-header {
+  height: auto;
+  min-height: 3.5rem;
+}
+
+.site-title {
+  font-size: 1rem !important;
+  line-height: 1.4;
+  white-space: normal;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}

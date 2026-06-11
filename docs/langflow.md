@@ -126,7 +126,9 @@ You are a helpful agent designed to assist with user queries.
 ### Exercise B: Creating an Agent with Firecrawl Tools
 
 <!-- VIDEO PLACEHOLDER: Langflow2-Firecrawl — re-insert video embed here -->
-<!-- SCREENSHOT PLACEHOLDER: assets/images/langflow-exercise-b.png — Agent node with two Firecrawl tool nodes (AU + UK) -->
+<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/langflow-exercise-b.png, then uncomment the line below:
+![Agent node with two Firecrawl tool nodes (AU + UK)](assets/images/langflow-exercise-b.png)
+-->
 
 Now we enhance our basic chatbot by converting it into an agent with live web access. We'll add **two Firecrawl components in Tool Mode** - one pointed at the Australian skills shortage page, one at the UK priority skills page.
 
@@ -163,8 +165,12 @@ Which occupations or sectors appear as high priority in BOTH countries?
 ### Exercise C: LLM-as-Judge Evaluation
 
 <!-- VIDEO PLACEHOLDER: Langflow3-Evaluation — re-insert video embed here -->
-<!-- SCREENSHOT PLACEHOLDER: assets/images/langflow-exercise-c-flow.png — full flow with Prompt node and second LLM -->
-<!-- SCREENSHOT PLACEHOLDER: assets/images/langflow-exercise-c-output.png — evaluation output in the Playground -->
+<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/langflow-exercise-c-flow.png, then uncomment the line below:
+![Full flow with Prompt node and second LLM](assets/images/langflow-exercise-c-flow.png)
+-->
+<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/langflow-exercise-c-output.png, then uncomment the line below:
+![Evaluation output in the Playground](assets/images/langflow-exercise-c-output.png)
+-->
 
 This exercise adds automated quality assessment: a second LLM judges how good the agent's comparison was. This is the **LLM-as-judge pattern**, widely used in production AI systems.
 

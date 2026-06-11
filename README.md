@@ -2,7 +2,7 @@
 Welcome! This repo covers everything you need to know about building agents with IBM watsonx - taken from no-code through to pro-code, and grounded in real workforce intelligence use cases built on official Australian and UK government data.
 
 <!-- BANNER PLACEHOLDER: re-add course banner image linking to the site -->
-**[👉 Open the course site](https://monadil.github.io/DEWRAgenticCrashCourse/)**
+**[👉 Open the course site](https://monadil.github.io/DEWRAgenticAIBootcamp/)**
 
 ## Course Overview
 
@@ -51,7 +51,7 @@ Before you begin, make sure you have:
 ## Repository Structure
 
 ```
-DEWRAgenticCrashCourse/
+DEWRAgenticAIBootcamp/
 ├── 1. Orchestrate/     # No-code agent building
 ├── 2. Langflow/        # Low-code visual development
 ├── 3. Langgraph/       # Pro-code Python development

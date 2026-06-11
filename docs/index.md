@@ -59,7 +59,7 @@ Before you begin, make sure you have:
 ## Repository Structure
 
 ```
-DEWRAgenticCrashCourse/
+DEWRAgenticAIBootcamp/
 ├── 1. Orchestrate/     # No-code agent building
 ├── 2. Langflow/        # Low-code visual development
 ├── 3. Langgraph/       # Pro-code Python development
@@ -71,7 +71,7 @@ DEWRAgenticCrashCourse/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Monadil/DEWRAgenticCrashCourse .
+   git clone https://github.com/Monadil/DEWRAgenticAIBootcamp .
    ```
 
 2. **Install dependencies**:

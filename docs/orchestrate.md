@@ -74,7 +74,9 @@ Create an agent with no tools or knowledge attached, and start with these warm-u
 ### Exercise B: Adding Agentic RAG
 
 <!-- VIDEO PLACEHOLDER: Orchestrate2-RAG — re-insert video embed here -->
-<!-- SCREENSHOT PLACEHOLDER: knowledge base configuration in Orchestrate -->
+<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/orchestrate-exercise-b-kb.png, then uncomment the line below:
+![Knowledge base configuration in Orchestrate](assets/images/orchestrate-exercise-b-kb.png)
+-->
 
 Now we'll ground the agent in current, official data by uploading the **2025 OSL Key Findings Report** PDF as a knowledge base.
 
@@ -98,7 +100,9 @@ ratings in 2025?
 ### Exercise C: External Tool Integration
 
 <!-- VIDEO PLACEHOLDER: Orchestrate3-MCP — re-insert video embed here -->
-<!-- SCREENSHOT PLACEHOLDER: Firecrawl tool added to the agent -->
+<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/orchestrate-exercise-c-firecrawl.png, then uncomment the line below:
+![Firecrawl tool added to the agent](assets/images/orchestrate-exercise-c-firecrawl.png)
+-->
 
 Learn to integrate external tools for live web data:
 
