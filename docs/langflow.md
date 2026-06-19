@@ -126,10 +126,8 @@ You are a helpful agent designed to assist with user queries.
 ### Exercise B: Creating an Agent with Firecrawl Tools
 
 <!-- VIDEO PLACEHOLDER: Langflow2-Firecrawl — re-insert video embed here -->
-*📷 Screenshot to be added — Agent node with two Firecrawl tool nodes (AU + UK).*
-<!-- SCREENSHOT PLACEHOLDER — save your capture as docs/assets/images/langflow-exercise-b.png, then delete the note above and uncomment:
 ![Agent node with two Firecrawl tool nodes (AU + UK)](assets/images/langflow-exercise-b.png)
--->
+*Agent orchestrating IBM watsonx.ai with two Firecrawl tools — one per country*
 
 Now we enhance our basic chatbot by converting it into an agent with live web access. We'll add **two Firecrawl components in Tool Mode** - one pointed at the Australian skills shortage page, one at the UK priority skills page.
 
@@ -166,11 +164,8 @@ Which occupations or sectors appear as high priority in BOTH countries?
 ### Exercise C: LLM-as-Judge Evaluation
 
 <!-- VIDEO PLACEHOLDER: Langflow3-Evaluation — re-insert video embed here -->
-*📷 Screenshots to be added — full flow with Prompt node and second LLM, and the evaluation output in the Playground.*
-<!-- SCREENSHOT PLACEHOLDER — save your captures as docs/assets/images/langflow-exercise-c-flow.png and docs/assets/images/langflow-exercise-c-output.png, then delete the note above and uncomment:
-![Full flow with Prompt node and second LLM](assets/images/langflow-exercise-c-flow.png)
-![Evaluation output in the Playground](assets/images/langflow-exercise-c-output.png)
--->
+![Full LLM-as-judge flow](assets/images/langflow-exercise-c.png)
+*Complete flow: two Firecrawl tools and the Agent, then a Prompt template feeding a second watsonx.ai that scores the comparison*
 
 This exercise adds automated quality assessment: a second LLM judges how good the agent's comparison was. This is the **LLM-as-judge pattern**, widely used in production AI systems.
 
@@ -314,10 +309,11 @@ Ready to take your skills to the next level with full programming control? Move 
 Explore the Langflow resources:
 ```
 2. Langflow/
-├── README.md          # Lab reference guide
-└── Exercise A.png     # Basic prompting flow screenshot
+├── README.md                                          # Lab reference guide
+├── Exercise A - Basic Prompting.png                   # Exercise A flow
+├── Exercise B- Creating an Agent with tool nodes.png  # Exercise B flow
+└── Exercise C - LLM as a Judge Evaluation.png         # Exercise C flow
 ```
-*(Screenshots for Exercises B and C are being re-captured for the new AU/UK flow.)*
 
 ## Additional Resources
 
