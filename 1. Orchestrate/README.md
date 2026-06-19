@@ -54,6 +54,19 @@ Web-only query:
 - Given that wage increases are rarely used to address shortages, what does the 2025 OSL say about which occupations are most at risk and what interventions might work for each shortage type?
 - Which shortage occupations face the worst regional location barriers, and are those same occupations still rated as in shortage nationally in 2025?
 
+# Part 2: From Copilot to Agentic — The Ministerial Brief Agent
+Part 1 above is a copilot (you prompt each step). Part 2 is a true agentic system: one trigger starts four agents that gather data, draft a ministerial brief, verify it against documented standards, and self-correct — with a human only at the final sign-off gate.
+
+Guided-assembly lab. Everything is pre-built in `Ministerial Brief Agent/`:
+- `healthcare_workforce_tool.py` — pre-registered mock tool returning illustrative healthcare workforce data
+- `DPMC Brief Standards.md` — the Verification Agent's knowledge base (8 drafting rules)
+- `Agent Prompts.md` — instruction prompts for the Orchestrator, Statistics, Writing, and Verification agents
+
+Trigger scenario:
+Brief the Minister on the current state of the healthcare workforce shortage ahead of the meeting with the AMA (Australian Medical Association).
+
+Demo highlight: the first-pass Writing Agent prompt intentionally omits citations and the financial-implications section, so Verification fails Rules 3 and 4 and the system self-corrects on retry. See the full walkthrough in the [Chapter 1 lab guide](https://monadil.github.io/DEWRAgenticAIBootcamp/orchestrate.html).
+
 # Great resources:
 - <a href='https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=getting-started-watsonx-orchestrate'>Getting Started Tutorial</a> - Official IBM documentation.
 - <a href='https://developer.watson-orchestrate.ibm.com/'>Deep Dive into ADK</a> - This is ultra useful, it covers the Agent Development Kit.

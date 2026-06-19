@@ -1,0 +1,95 @@
+<svg viewBox="0 0 880 940" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5f6368"/>
+    </marker>
+    <marker id="arrowRetry" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d93025"/>
+    </marker>
+    <marker id="arrowPass" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#137333"/>
+    </marker>
+  </defs>
+
+  <!-- Trigger -->
+  <rect x="250" y="24" width="300" height="52" rx="26" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="400" y="47" text-anchor="middle" font-size="14" font-weight="600" fill="#7a4a00">TRIGGER — Minister's office requests a brief</text>
+  <text x="400" y="65" text-anchor="middle" font-size="12" fill="#7a4a00">"Brief the Minister on the healthcare workforce shortage ahead of the AMA meeting"</text>
+
+  <line x1="400" y1="76" x2="400" y2="108" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Orchestrator -->
+  <rect x="210" y="110" width="380" height="66" rx="10" fill="#e8f0fe" stroke="#1a73e8" stroke-width="2"/>
+  <text x="400" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#174ea6">Orchestrator Agent</text>
+  <text x="400" y="158" text-anchor="middle" font-size="12" fill="#174ea6">watsonx Orchestrate — decomposes, sequences sub-agents, manages retry loop</text>
+
+  <line x1="400" y1="176" x2="400" y2="216" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="416" y="200" font-size="12" font-weight="600" fill="#5f6368">① get statistics</text>
+
+  <!-- Statistics Agent -->
+  <rect x="210" y="218" width="380" height="62" rx="10" fill="#f1f3f4" stroke="#5f6368" stroke-width="1.5"/>
+  <text x="400" y="244" text-anchor="middle" font-size="14" font-weight="700" fill="#202124">Statistics Agent</text>
+  <text x="400" y="263" text-anchor="middle" font-size="12" fill="#3c4043">calls the tool, formats metrics into citation-ready text</text>
+
+  <!-- Mock API callout (right) -->
+  <rect x="630" y="222" width="220" height="54" rx="8" fill="#e6f4ea" stroke="#137333" stroke-width="1.5"/>
+  <text x="740" y="245" text-anchor="middle" font-size="13" font-weight="600" fill="#0d652d">Mock Healthcare API</text>
+  <text x="740" y="263" text-anchor="middle" font-size="11" fill="#0d652d">pre-registered tool → roles + data</text>
+  <line x1="590" y1="249" x2="626" y2="249" stroke="#137333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="626" y1="256" x2="592" y2="256" stroke="#137333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <line x1="400" y1="280" x2="400" y2="320" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="416" y="304" font-size="12" font-weight="600" fill="#5f6368">② write brief</text>
+
+  <!-- Writing Agent -->
+  <rect x="210" y="322" width="380" height="62" rx="10" fill="#f1f3f4" stroke="#5f6368" stroke-width="1.5"/>
+  <text x="400" y="348" text-anchor="middle" font-size="14" font-weight="700" fill="#202124">Writing Agent</text>
+  <text x="400" y="367" text-anchor="middle" font-size="12" fill="#3c4043">drafts the brief in DPMC format (watsonx.ai)</text>
+
+  <line x1="400" y1="384" x2="400" y2="424" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="416" y="408" font-size="12" font-weight="600" fill="#5f6368">③ verify</text>
+
+  <!-- Verification Agent -->
+  <rect x="210" y="426" width="380" height="62" rx="10" fill="#f1f3f4" stroke="#5f6368" stroke-width="1.5"/>
+  <text x="400" y="452" text-anchor="middle" font-size="14" font-weight="700" fill="#202124">Verification Agent (RAG)</text>
+  <text x="400" y="471" text-anchor="middle" font-size="12" fill="#3c4043">checks draft against the standards, rule by rule</text>
+
+  <!-- DPMC KB callout (right) -->
+  <rect x="630" y="430" width="220" height="54" rx="8" fill="#e6f4ea" stroke="#137333" stroke-width="1.5"/>
+  <text x="740" y="453" text-anchor="middle" font-size="13" font-weight="600" fill="#0d652d">DPMC Knowledge Base</text>
+  <text x="740" y="471" text-anchor="middle" font-size="11" fill="#0d652d">8 drafting rules (RAG)</text>
+  <line x1="590" y1="457" x2="626" y2="457" stroke="#137333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="626" y1="464" x2="592" y2="464" stroke="#137333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <line x1="400" y1="488" x2="400" y2="524" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Decision diamond -->
+  <polygon points="400,524 500,594 400,664 300,594" fill="#fef7e0" stroke="#f9ab00" stroke-width="2"/>
+  <text x="400" y="589" text-anchor="middle" font-size="14" font-weight="700" fill="#7a5900">All 8 rules</text>
+  <text x="400" y="608" text-anchor="middle" font-size="14" font-weight="700" fill="#7a5900">pass?</text>
+
+  <!-- Fail / retry loop (left) -->
+  <path d="M300,594 L150,594 L150,353 L206,353" fill="none" stroke="#d93025" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowRetry)"/>
+  <text x="150" y="474" text-anchor="middle" font-size="12" font-weight="700" fill="#d93025">FAIL</text>
+  <text x="150" y="492" text-anchor="middle" font-size="11" fill="#d93025">revise — back to</text>
+  <text x="150" y="507" text-anchor="middle" font-size="11" fill="#d93025">Writing Agent</text>
+  <text x="150" y="522" text-anchor="middle" font-size="11" fill="#d93025">(max 2 retries)</text>
+
+  <!-- Pass -->
+  <line x1="400" y1="664" x2="400" y2="704" stroke="#137333" stroke-width="2" marker-end="url(#arrowPass)"/>
+  <text x="416" y="688" font-size="12" font-weight="700" fill="#137333">PASS</text>
+
+  <!-- Output -->
+  <rect x="230" y="706" width="340" height="60" rx="10" fill="#d2e3fc" stroke="#1a73e8" stroke-width="2"/>
+  <text x="400" y="732" text-anchor="middle" font-size="14" font-weight="700" fill="#174ea6">Ministerial brief ready</text>
+  <text x="400" y="751" text-anchor="middle" font-size="12" fill="#174ea6">DPMC-compliant, statistics cited — routed to human gate</text>
+
+  <!-- Human gate -->
+  <line x1="400" y1="766" x2="400" y2="800" stroke="#5f6368" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="276" y="802" width="248" height="46" rx="23" fill="#fff4e5" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="400" y="830" text-anchor="middle" font-size="13" font-weight="600" fill="#7a4a00">👤 Human reviews &amp; signs off (the only gate)</text>
+
+  <!-- Caption -->
+  <text x="400" y="888" text-anchor="middle" font-size="12" font-style="italic" fill="#5f6368">Four agents coordinate from a single trigger. The human only enters at the final gate —</text>
+  <text x="400" y="906" text-anchor="middle" font-size="12" font-style="italic" fill="#5f6368">that autonomy between trigger and gate is what makes this agentic, not copilot.</text>
+</svg>

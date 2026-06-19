@@ -165,6 +165,146 @@ in 2025?
 
 **Teaching point:** the most powerful agent demos require two-source reasoning. Watch how the agent scrapes the webpage for shortage types and historical persistence, then cross-references the knowledge base for the latest 2025 ratings.
 
+---
+
+# Part 2: From Copilot to Agentic — The Ministerial Brief Agent
+
+Everything you built in Part 1 was a **copilot**: a capable assistant that answered when you asked. You grounded it in enterprise data with a knowledge base (Exercise B) and extended what it could do with a tool (Exercise C) — the two fundamentals of any useful agent. But *you* drove every step.
+
+Part 2 crosses the line into **agentic**. Instead of you prompting each step, a single trigger starts a system of four agents that plan, act across tools, make routing decisions, check their own work, and self-correct — only handing back to a human at the final sign-off gate.
+
+## Copilot vs Agentic
+
+This is the core distinction to take away from today:
+
+| Copilot (Part 1) | Agentic (Part 2) |
+|---|---|
+| A human prompts each step | A trigger starts the whole process |
+| One tool per interaction | Multiple tools and agents in sequence |
+| AI suggests, the human acts | AI drafts, verifies, routes, and logs |
+| Human stays in the loop at every step | Human only reviews at a gate |
+| Runs when asked | Runs on a schedule or event |
+
+Put simply: **a copilot is an individual assistant; an agent reacts, reasons, and acts.** The knowledge base grounds the model in your enterprise data; a tool gives the model new capabilities; agentic design lets the model *use* those things autonomously to complete a job end to end.
+
+## The Use Case
+
+- **Persona:** Policy Analyst
+- **Trigger:** the Minister's office requests a brief
+- **Scenario:** *"Brief the Minister on the current state of the healthcare workforce shortage ahead of the meeting with the AMA (Australian Medical Association)."*
+- **Outcome:** a compliant ministerial brief with cited statistics, produced and quality-checked autonomously, ready to route for sign-off.
+
+## The Four-Agent Architecture
+
+![Ministerial Brief Agent architecture](assets/images/multiagent-architecture.svg)
+
+| Agent | Role |
+|---|---|
+| **Orchestrator** | Decomposes the request, sequences the three sub-agents, and manages the verification retry loop |
+| **Statistics Agent** | Calls the mock healthcare tool and formats the metrics into citation-ready text |
+| **Writing Agent** | Drafts the brief in DPMC format from the topic and the statistics |
+| **Verification Agent** | Checks the draft against the drafting standards using **RAG over a knowledge base** — rule by rule, not by LLM opinion |
+
+**Key design decision:** verification runs over a **knowledge base of documented rules**, not the model's own judgement. Each check is grounded in a written rule, which is far more defensible for a government audience than asking an LLM to "decide" whether a brief is compliant. It's the same grounding principle you used in Exercise B, now applied to quality control.
+
+## What's Provided vs. What You'll Build
+
+This is a guided-assembly lab. The scaffolding is pre-built so you spend the hour wiring and running, not authoring from scratch:
+
+**Provided** (in `1. Orchestrate/Ministerial Brief Agent/`):
+- The **mock healthcare tool**, pre-registered in Orchestrate — returns illustrative workforce data (`healthcare_workforce_tool.py`)
+- The **DPMC knowledge base** document of 8 drafting rules (`DPMC Brief Standards.md`)
+- The **four agent prompts**, ready to paste (`Agent Prompts.md`)
+
+**You'll build:** attach the tool, upload the knowledge base, create the four agents, wire the orchestrator with its retry loop, and run the AMA scenario.
+
+### The mock healthcare tool
+
+One stubbed service returns all healthcare roles with monthly employment numbers and a sector summary — for example: 48% of healthcare occupations in national shortage, Registered Nurses at 312,400 (down 1,200 on the month), retention gap as the primary driver, regional fill rates (62.9%) lagging metro (69.7%). All figures are illustrative mock data, clearly labelled, and easy to swap for a real ABS/JSA feed later.
+
+### The DPMC knowledge base (8 rules)
+
+The Verification Agent retrieves and checks against these:
+
+1. **Purpose** — one sentence starting with "To inform", "To advise", or "To seek approval"
+2. **Key points** — maximum 5 bullets
+3. **Citations** — every statistic cites source and period, e.g. "(JSA Occupation Shortage List 2025)"
+4. **Financial implications** — section required, even if "No direct financial implications"
+5. **Classification** — OFFICIAL or OFFICIAL: Sensitive marking at the top
+6. **Background** — 300 words or fewer
+7. **Contact officer** — name, title, phone, and date at the end
+8. **Action type** — "For Noting" or "For Decision/Approval"
+
+> These rules are an **illustrative teaching stand-in**, not official Australian Government policy.
+
+## Build Steps (guided assembly)
+
+1. **Statistics Agent** — create the agent, attach the pre-registered healthcare tool, paste its prompt, and test that it returns the workforce figures as cited text.
+2. **Writing Agent** — create the agent and paste the **first-pass prompt** (see the demo note below).
+3. **Verification Agent** — create the agent, upload `DPMC Brief Standards.md` as its knowledge base, and paste its prompt.
+4. **Orchestrator** — create the agent, connect it to the three sub-agents, and paste its prompt. The retry loop (max 2 retries) lives in this prompt.
+
+All four prompts are in `Agent Prompts.md`.
+
+## Run It: The AMA Scenario
+
+Trigger the Orchestrator with:
+
+```
+Brief the Minister on the current state of the healthcare workforce shortage
+ahead of the meeting with the AMA (Australian Medical Association).
+```
+
+Then watch the system work on its own: the Orchestrator calls the Statistics Agent (① data), passes the figures to the Writing Agent (② draft), and sends the draft to the Verification Agent (③ check).
+
+> **Deliberate failure demo (facilitator note):** the **first-pass Writing Agent prompt** intentionally omits source citations and the financial-implications section. The Verification Agent catches this and fails **Rule 3** and **Rule 4**. The Orchestrator returns those exact reasons to the Writing Agent, which fixes them and passes on the second attempt. This self-correction — the agent catching and repairing its own work with no human prompting — is the whole point of the lab. (Swap in the **complete** Writing Agent prompt afterwards to show the production version that passes first time.)
+
+## Example Output (after self-correction)
+
+```
+OFFICIAL: Sensitive
+
+BRIEF TO THE MINISTER
+Employment and Workplace Relations
+
+SUBJECT: Healthcare workforce shortage — background for AMA meeting
+
+PURPOSE: To inform the Minister of current healthcare workforce conditions
+ahead of the meeting with the Australian Medical Association.
+
+KEY POINTS:
+• 48% of healthcare occupations are in national shortage
+  (JSA Occupation Shortage List 2025)
+• Registered Nurses most acute: 312,400 employed April 2026, down 1,200 from March
+• Retention gap is the primary driver — workers leaving faster than training
+  pipelines can replace
+• Regional fill rates (62.9%) lag metro (69.7%)
+
+BACKGROUND: ...
+
+FINANCIAL IMPLICATIONS: No direct financial implications.
+
+ACTION: For Noting
+
+Contact: [Name] | [Title] | [Phone] | April 2026
+```
+
+## What Just Happened
+
+You started a process with one request and a system of agents completed it — gathering data, drafting, checking against documented standards, and correcting itself — handing back a finished, compliant brief for you to sign off. The human entered once, at the gate. That is the shift from copilot to agentic, and it's the foundation the rest of this course builds on.
+
+## Suggested 60-Minute Timing
+
+| Time | Activity |
+|---|---|
+| 0–10 | Concept: copilot vs agentic; walk the architecture diagram |
+| 10–18 | Inspect the provided mock tool data and the 8 DPMC rules |
+| 18–30 | Build and test the Statistics Agent |
+| 30–42 | Build the Writing Agent (first-pass prompt) and Verification Agent (knowledge base) |
+| 42–52 | Wire the Orchestrator with the retry loop; run the AMA scenario |
+| 52–57 | Watch the deliberate failure → self-revision → pass; review the brief at the gate |
+| 57–60 | Debrief |
+
 ## Essential Resources
 
 - [Getting Started Tutorial](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=getting-started-watsonx-orchestrate) - Official IBM documentation
@@ -215,5 +355,9 @@ All the code and resources for this chapter can be found in:
 ```
 1. Orchestrate/
 ├── README.md                            # Lab reference guide
-└── 2025 OSL Key Findings Report.pdf     # Knowledge base document
+├── 2025 OSL Key Findings Report.pdf     # Part 1 knowledge base document
+└── Ministerial Brief Agent/             # Part 2 agentic use case
+    ├── DPMC Brief Standards.md          # Verification knowledge base (8 rules)
+    ├── healthcare_workforce_tool.py     # Pre-registered mock tool
+    └── Agent Prompts.md                 # The four agent instruction prompts
 ```
