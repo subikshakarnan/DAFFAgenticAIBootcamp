@@ -5,7 +5,7 @@ nav_order: 3
 description: "Visual agent development with low-code workflows"
 ---
 
-# Chapter 2testing: Visual Agent Development with Langflow
+# Chapter 2: Visual Agent Development with Langflow
 
 Welcome to Chapter 2! Here we'll explore **low-code visual agent development** using Langflow - the perfect middle ground between no-code simplicity and full programming control. You'll build an agent that compares Australian and UK skills priorities live from official government sources, then have a second LLM judge the quality of the comparison.
 
@@ -117,7 +117,7 @@ You are a helpful agent designed to assist with user queries.
 4. Connect to Chat Output component
 
 **Test Prompts**:
-- "What is a skills shortage and why can it persist even when unemployment is low?"
+- "Why is trust in AI important?"
 - "Which occupations are hardest to fill in Australia right now?"
 - "How does the UK government plan for future skills needs?"
 
@@ -129,11 +129,11 @@ You are a helpful agent designed to assist with user queries.
 ![Agent node with two Firecrawl tool nodes (AU + UK)](assets/images/langflow-exercise-b.png)
 *Agent orchestrating IBM watsonx.ai with two Firecrawl tools — one per country*
 
-Now we enhance our basic chatbot by converting it into an agent with live web access. We'll add **two Firecrawl components in Tool Mode** - one pointed at the Australian skills shortage page, one at the UK priority skills page.
+Now we enhance our basic chatbot by converting it into an AI agent with live web access. We'll add **two Firecrawl components in Tool Mode** - one pointed at the Australian skills shortage page, one at the UK priority skills page.
 
 **Additional Nodes Required**:
 - **Agent** - Orchestrates tool usage and responses (uses IBM watsonx.ai as the underlying model)
-- **Firecrawl x2** - Set to Tool Mode, one per country
+- **2x Firecrawl Scrape Tools** - Scrapes the two pages (one per country) in Tool Mode 
 
 **Agent Instructions** (paste into the Agent's instructions field):
 ```
@@ -154,12 +154,19 @@ each finding comes from.
 3. Paste the agent instructions above
 4. Test the enhanced workflow
 
-**Test Prompt (Query 1 — Shared Priorities)**:
+**Test Prompt 1 (Query 1 — Shared Priorities)**:
 ```
 What are the top 3 occupations or sectors that appear as high priority in BOTH countries?
 ```
 
-**Expected output:** the agent should find the overlap - Care, Digital, Construction, and Engineering appear as priorities in both countries, with each finding attributed to its source.
+**Expected output:** the agent should find the overlap - Care, Digital, and Software development appear as priorities in both countries, with each finding attributed to its source.
+
+**Test Prompt 2 (Query 2 — Shared Priorities)**:
+```
+Compare the proportion of high-skill qualification demand in each country.
+```
+
+**Expected output:** the agent should output Australia is 48% for the Professionals group and UK is around two-thirds (66%) of priority occupations expecting workers with education at levels 4 and above.
 
 ### Exercise C: LLM-as-Judge Evaluation
 
