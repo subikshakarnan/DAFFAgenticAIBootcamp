@@ -10,12 +10,12 @@ info:
     Australia (Longer Training Gap / Shorter Training Gap / Suitability Gap /
     Retention Gap).
 servers:
-  - url: https://your-host.example.com
+  - url: https://monadil.github.io/DEWRAgenticAIBootcamp
     description: >
-      Replace with the host serving this endpoint. The full response is included
-      as an example below so the spec is self-documenting.
+      Hosted as a static JSON file on the course GitHub Pages site. The full
+      response is also included as an example below so the spec is self-documenting.
 paths:
-  /healthcare-workforce/current:
+  /api/healthcare-workforce.json:
     get:
       operationId: getHealthcareWorkforce
       summary: Get current healthcare workforce statistics
