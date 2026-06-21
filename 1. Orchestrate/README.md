@@ -55,17 +55,17 @@ Web-only query:
 - Which shortage occupations face the worst regional location barriers, and are those same occupations still rated as in shortage nationally in 2025?
 
 # Part 2: From Copilot to Agentic — The Ministerial Brief Agent
-Part 1 above is a copilot (you prompt each step). Part 2 is a true agentic system: one trigger starts four agents that gather data, draft a ministerial brief, verify it against documented standards, and self-correct — with a human only at the final sign-off gate.
+Part 1 above is a copilot (you prompt each step). Part 2 is a true agentic system: one trigger starts three agents that gather data and draft a ministerial brief in the Department's standard format — with a human only at the final sign-off gate.
 
 Guided-assembly lab. Everything is pre-built in `Ministerial Brief Agent/`:
-- `healthcare_workforce_tool.py` — pre-registered mock tool returning illustrative healthcare workforce data
-- `DPMC Brief Standards.md` — the Verification Agent's knowledge base (8 drafting rules)
-- `Agent Prompts.md` — instruction prompts for the Orchestrator, Statistics, Writing, and Verification agents
+- `healthcare-workforce-openapi.yaml` — OpenAPI spec, imported as the Statistics Agent's data tool (a Python fallback, `healthcare_workforce_tool.py`, is included for no-hosting use)
+- `Ministerial Brief Format.docx` — the brief format and rules, uploaded as the Writing Agent's knowledge base
+- `Agent Prompts.md` — descriptions and instructions for the Orchestrator, Statistics, and Writing agents
 
 Trigger scenario:
 Brief the Minister on the current state of the healthcare workforce shortage ahead of the meeting with the AMA (Australian Medical Association).
 
-Demo highlight: the first-pass Writing Agent prompt intentionally omits citations and the financial-implications section, so Verification fails Rules 3 and 4 and the system self-corrects on retry. See the full walkthrough in the [Chapter 1 lab guide](https://monadil.github.io/DEWRAgenticAIBootcamp/orchestrate.html).
+The Orchestrator calls the Statistics Agent for data, passes it to the Writing Agent to draft against the format knowledge base, and returns the finished brief for sign-off. See the full walkthrough in the [Chapter 1 lab guide](https://monadil.github.io/DEWRAgenticAIBootcamp/orchestrate.html).
 
 # Great resources:
 - <a href='https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=getting-started-watsonx-orchestrate'>Getting Started Tutorial</a> - Official IBM documentation.

@@ -1,13 +1,13 @@
 # Ministerial Brief Drafting Standards
 
-**Document type:** Verification knowledge base for the Ministerial Brief Agent
+**Document type:** Text version of the Writing Agent's brief format knowledge base (`Ministerial Brief Format.docx`)
 **Status:** ILLUSTRATIVE — created for the DEWR Agentic AI Bootcamp. These rules are a simplified teaching stand-in and are **not** official DPMC or Australian Government policy.
 
 ---
 
 ## How this document is used
 
-The Verification Agent runs Retrieval-Augmented Generation (RAG) over this document. For each draft brief it retrieves the relevant rule, then checks the draft against that rule and reports a pass or a specific failure. Verification is grounded in these documented rules — it is **not** the model "deciding" whether a brief feels compliant. That grounding is what makes the check defensible.
+The Writing Agent grounds its formatting in these rules. The uploadable knowledge base is `Ministerial Brief Format.docx`; this Markdown file holds the same content in readable, version-controllable form. When drafting a brief, the agent follows each rule below.
 
 ---
 
@@ -40,10 +40,8 @@ The brief must state an action type: **"For Noting"** or **"For Decision/Approva
 
 ---
 
-## Verification output
+## Applying these rules
 
-For each draft the Verification Agent returns:
-- **pass:** true only if all 8 rules are satisfied
-- **failures:** a list naming each failed rule and what was missing (e.g. "Rule 3 — the figure '48% of healthcare occupations in shortage' has no source citation")
-
-When `pass` is false, the Orchestrator returns the failure list to the Writing Agent for revision (maximum 2 retries).
+The Writing Agent follows every rule above when drafting a brief, and matches the clean
+style of the worked example in `Ministerial Brief Format.docx` — it does not print rule
+numbers, limits, or word counts inside the brief itself.
