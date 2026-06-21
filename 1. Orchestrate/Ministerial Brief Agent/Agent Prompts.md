@@ -52,11 +52,6 @@ Occupation Shortage List 2025)". Return the role figures and the sector summary.
 the numbers the tool returns; never invent or estimate figures.
 ```
 
-> **No-hosting fallback:** if you have not hosted the OpenAPI endpoint, replace the first
-> sentence with *"Do not call any tool — use only the reference data below"* and paste the
-> data table from `healthcare_workforce_tool.py` underneath. The agent then works with no
-> tool wired up.
-
 ---
 
 ## 3. Writing Agent
@@ -79,5 +74,4 @@ knowledge. If a particular metric is not in the data, leave it out and write the
 from what you have.
 ```
 
-> Note: "JSA" stands for **Jobs and Skills Australia**. If the brief needs to spell it out,
-> use that — not "Job Services Australia".
+> Note: "JSA" stands for Jobs and Skills Australia.
