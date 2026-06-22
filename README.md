@@ -23,7 +23,7 @@ This course is organized into four progressive chapters:
 ### Chapter 1: Orchestrate
 **No-code agent building with watsonx Orchestrate**
 
-Perfect for business users and those new to AI agent development. Build a workforce intelligence agent that answers skills shortage questions from official Jobs and Skills Australia data - without writing any code.
+Perfect for business users and those new to AI agent development. Build a multi-agent Ministerial Brief system that turns one request into a finished, formatted brief — without writing any code.
 
 ### Chapter 2: Langflow
 **Visual agent development with drag-and-drop workflows**
