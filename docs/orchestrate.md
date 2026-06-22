@@ -44,7 +44,7 @@ This lab uses three of its core building blocks: a **tool** (so an agent can pul
 
 | Agent | Role |
 |---|---|
-| **Orchestrator** | Decomposes the request and sequences the two sub-agents |
+| **Orchestrator** | Sequences to the two sub-agents |
 | **Statistics Agent** | Calls the healthcare workforce tool and formats the metrics into citation-ready text |
 | **Writing Agent** | Drafts the brief in the Department's standard format, grounded in a knowledge base that defines that format |
 
