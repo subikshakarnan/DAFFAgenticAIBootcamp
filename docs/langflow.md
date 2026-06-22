@@ -156,21 +156,21 @@ each finding comes from.
 
 **Exercise B Test Prompts**:
 
-1. **Test Prompt 1**:
+**Test Prompt 1**:
 ```
 What are the top 3 occupations or sectors that appear as high priority in BOTH countries?
 ```
 
 **Expected output:** the agent should find the overlap - Care, Digital, and Software development appear as priorities in both countries, with each finding attributed to its source.
 
-2. **Test Prompt 2**:
+**Test Prompt 2**:
 ```
 Compare the proportion of high-skill qualification demand in each country.
 ```
 
 **Expected output:** the agent should output Australia is 48% for the Professionals group and UK is around two-thirds (66%) of priority occupations expecting workers with education at levels 4 and above.
 
-3. **Test Prompt 3**:
+**Test Prompt 3**:
 ```
 Which country provides more quantitative evidence about future workforce demand?
 ```
@@ -209,6 +209,7 @@ would make it a 10.
 4. Re-run Query 1 and note the score (typically 7-8/10)
 
 **Exercise C Test Prompts**:
+
 **Test Prompt 1**:
 ```
 Both Australia and the UK are projecting major growth in Care and
@@ -220,7 +221,6 @@ and what their skills system needs to deliver.
 ```
 Australia and the UK are both experiencing skills shortages. Compare the main causes of these shortages and explain how each country is responding to them.
 ```
-
 
 **Teaching moment:** the score should improve between Query 1 and Query 2. A more focused question produces a better comparison - demonstrating that prompt quality directly affects agent output quality, and that you can measure it.
 
