@@ -199,8 +199,9 @@ would make it a 10.
 > **Key clarification:** `{chat_input}` in the Prompt Template receives the **Agent's response**, NOT the user's original question. The second LLM never sees the user's question - it only judges the quality of the Agent's output.
 
 **Additional Nodes Required**:
-- **Prompt** - Holds the evaluation template
+- **Prompt Template** - Holds the evaluation template
 - **IBM watsonx.ai (second instance)** - The judge LLM
+- **Chat Output** - Holds the LLM's response to the user query**
 
 **Workflow Enhancement**:
 1. Connect the Agent's response output to the Prompt node's `{chat_input}` variable
