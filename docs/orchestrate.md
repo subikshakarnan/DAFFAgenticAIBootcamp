@@ -184,8 +184,6 @@ SUGGESTED TALKING POINTS:
 • Regional access is a focus: regional fill rates (62.9%) lag metro (69.7%)
 
 ACTION: For Noting
-
-Contact: [Name] | [Title] | [Phone] | April 2026
 ```
 
 ## Essential Resources

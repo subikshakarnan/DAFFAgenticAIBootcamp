@@ -32,13 +32,10 @@ A classification marking must appear at the **top of the brief**: one of **OFFIC
 ### Rule 6 — Background length
 The BACKGROUND section must be **300 words or fewer**.
 
-### Rule 7 — Contact officer
-A contact officer must appear at the **end of the document** with a **name, title, phone number, and date**.
-
-### Rule 8 — Action type
+### Rule 7 — Action type
 The brief must state an action type: **"For Noting"** or **"For Decision/Approval"**.
 
-### Rule 9 — Suggested talking points
+### Rule 8 — Suggested talking points
 A **SUGGESTED TALKING POINTS** section provides 3–4 short points the Minister can use in the meeting. Each must rest on a figure already in the brief, stay politically neutral, and avoid policy commitments.
 
 ---
