@@ -201,7 +201,7 @@ would make it a 10.
 **Additional Nodes Required**:
 - **Prompt Template** - Holds the evaluation template
 - **IBM watsonx.ai (second instance)** - The judge LLM
-- **Chat Output** - Holds the LLM's response to the user query**
+- **Chat Output** - Holds the LLM's response to the user query
 
 **Workflow Enhancement**:
 1. Connect the Agent's response output to the Prompt node's `{chat_input}` variable
