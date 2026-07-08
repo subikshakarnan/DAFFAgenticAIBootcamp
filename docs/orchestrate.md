@@ -7,7 +7,7 @@ description: "Building a multi-agent system with watsonx Orchestrate"
 
 # Chapter 1: Building a Multi-Agent System with watsonx Orchestrate
 
-Welcome to the first chapter of the DEWR Agentic AI Bootcamp! You'll build a **Ministerial Brief Agent** in watsonx Orchestrate — a team of three agents that, from a single request, gather data, draft a ministerial brief in the Department's standard format, and hand it back for sign-off. No code required.
+Welcome to the first chapter of the DAFF Agentic AI Bootcamp! You'll build a **Ministerial Brief Agent** in watsonx Orchestrate — a team of three agents that, from a single request, gather data, draft a ministerial brief in the Department's standard format, and hand it back for sign-off. No code required.
 
 This is a genuinely *agentic* system: you trigger it once, the agents do the work across a tool and a knowledge base, and a human only steps in at the final gate.
 
@@ -102,7 +102,7 @@ statistics. Use it to produce a brief.
 **Instructions**
 
 ```
-You draft ministerial briefs for DEWR. Follow the structure and rules in the Ministerial
+You draft ministerial briefs for DAFF. Follow the structure and rules in the Ministerial
 Brief Format document in your knowledge base, and match the clean style of its worked
 example — do not include any rule labels or word-count notes in the brief.
 

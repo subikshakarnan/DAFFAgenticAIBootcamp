@@ -1,5 +1,5 @@
 ---
-title: "DEWR Agentic AI Bootcamp"
+title: "DAFF Agentic AI Bootcamp"
 layout: default
 nav_order: 1
 description: "A hands-on bootcamp on building AI agents with IBM watsonx - from no-code to pro-code solutions"
@@ -8,7 +8,7 @@ permalink: /
 
 # DEWR Agentic AI Bootcamp
 
-Welcome to the DEWR Agentic AI Bootcamp! This hands-on course takes you from zero to hero in the world of agentic AI, covering three different approaches to building agents - all grounded in real workforce intelligence use cases built on official Australian and UK government data.
+Welcome to the DAFF Agentic AI Bootcamp! This hands-on course takes you from zero to hero in the world of agentic AI, covering three different approaches to building agents - all grounded in real workforce intelligence use cases built on official Australian and UK government data.
 
 <!-- VIDEO PLACEHOLDER: Intro — re-insert video embed here -->
 
@@ -59,7 +59,7 @@ Before you begin, make sure you have:
 ## Repository Structure
 
 ```
-DEWRAgenticAIBootcamp/
+DAFFAgenticAIBootcamp/
 ├── 1. Orchestrate/     # No-code agent building
 ├── 2. Langflow/        # Low-code visual development
 ├── 3. Langgraph/       # Pro-code Python development
@@ -71,7 +71,7 @@ DEWRAgenticAIBootcamp/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Monadil/DEWRAgenticAIBootcamp .
+   git clone https://github.com/subikshakarnan/DAFFAgenticAIBootcamp.git .
    ```
 
 2. **Install dependencies**:

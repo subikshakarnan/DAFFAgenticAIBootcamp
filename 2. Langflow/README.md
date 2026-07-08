@@ -1,5 +1,5 @@
 # Visual Agent Development with Langflow
-Lab 2 of the DEWR Agentic AI Bootcamp. Build an agent that compares Australian and UK skills priorities live from official government sources, then have a second LLM judge the quality of the comparison (the LLM-as-judge pattern).
+Lab 2 of the DAFF Agentic AI Bootcamp. Build an agent that compares Australian and UK skills priorities live from official government sources, then have a second LLM judge the quality of the comparison (the LLM-as-judge pattern).
 
 ## Setup
 0. Sign Up: https://astra.datastax.com/signup?type=langflow

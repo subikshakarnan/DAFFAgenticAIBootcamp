@@ -1,4 +1,4 @@
-"""Mock Healthcare Workforce tool for the Ministerial Brief Agent (DEWR lab).
+"""Mock Healthcare Workforce tool for the Ministerial Brief Agent (DAFF lab).
 
 This is the single stubbed service the Statistics Agent calls. It is pre-registered
 as a tool in watsonx Orchestrate for the lab, so attendees only need to *attach* it
@@ -20,7 +20,7 @@ def get_healthcare_workforce() -> dict:
     return {
         "period": "April 2026",
         "sector": "Healthcare and Social Assistance",
-        "source": "Illustrative mock data (DEWR bootcamp) — cite as 'JSA Occupation Shortage List 2025' in briefs",
+        "source": "Illustrative mock data (DAFF bootcamp) — cite as 'JSA Occupation Shortage List 2025' in briefs",
         "roles": [
             {
                 "occupation": "Registered Nurses",
