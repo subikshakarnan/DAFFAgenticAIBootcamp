@@ -6,7 +6,7 @@ description: "A hands-on bootcamp on building AI agents with IBM watsonx - from 
 permalink: /
 ---
 
-# DEWR Agentic AI Bootcamp
+# DAFF Agentic AI Bootcamp
 
 Welcome to the DAFF Agentic AI Bootcamp! This hands-on course takes you from zero to hero in the world of agentic AI, covering three different approaches to building agents - all grounded in real workforce intelligence use cases built on official Australian and UK government data.
 
