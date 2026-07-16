@@ -1,7 +1,7 @@
-title: "👀🐝Ⓜ️ DEWR Agentic AI Bootcamp"
+title: "👀🐝Ⓜ️ DAFF Agentic AI Bootcamp"
 description: "A hands-on bootcamp on building AI agents with IBM watsonx - from no-code to pro-code solutions"
-baseurl: "/DEWRAgenticAIBootcamp"
-url: "https://monadil.github.io"
+baseurl: "/DAFFAgenticAIBootcamp"
+url: "https://subikshakarnan.github.io"
 
 # Build settings
 markdown: kramdown
@@ -24,7 +24,7 @@ footer_content: "Copyright &copy; 2026 IBM Client Engineering. Distributed under
 # Aux links for the upper right navigation
 aux_links:
   "Course on GitHub":
-    - "https://github.com/Monadil/DEWRAgenticAIBootcamp"
+    - "https://github.com/subikshakarnan/DAFFAgenticAIBootcamp"
 
 # Makes Aux links open in a new tab
 aux_links_new_tab: true
