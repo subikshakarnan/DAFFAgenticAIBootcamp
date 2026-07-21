@@ -1,7 +1,8 @@
 from typing import Annotated, List
 from langgraph.graph import START,END, StateGraph
 from langgraph.graph.message import add_messages 
-from langchain_ibm import ChatWatsonx 
+#from langchain_ibm import ChatWatsonx 
+from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import ToolNode
 from pydantic import BaseModel, Field
 from langgraph.checkpoint.memory import InMemorySaver
@@ -21,11 +22,19 @@ class GitHubRepos(BaseModel):
     repositories: List[GitHubRepo] = Field(description="List of GitHub repositories")
     total_count: int = Field(description="Total number of repositories found")
 
-llm = ChatWatsonx(
-    model_id="meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
-    project_id=os.environ['WATSONX_PROJECT_ID'],
-    params={'max_tokens':1500}
+# llm = ChatWatsonx(
+#     model_id="meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
+#     project_id=os.environ['WATSONX_PROJECT_ID'],
+#     params={'max_tokens':1500}
+# )
+
+llm = ChatOpenAI(
+    model=os.environ["MODEL_ID"],
+    api_key=os.environ["RH_API_KEY"],
+    base_url=os.environ["RH_ENDPOINT"],
+    max_tokens=1500,
 )
+
 tools = [trending]
 tool_node = ToolNode(tools) 
 

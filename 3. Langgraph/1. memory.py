@@ -1,7 +1,8 @@
 from typing import Annotated
 from langgraph.graph import START,END, StateGraph
 from langgraph.graph.message import add_messages 
-from langchain_ibm import ChatWatsonx 
+#from langchain_ibm import ChatWatsonx 
+from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.memory import InMemorySaver
 from dotenv import load_dotenv 
 import os 
@@ -9,10 +10,17 @@ from colorama import Fore
 
 load_dotenv() 
 
-llm = ChatWatsonx(
-    model_id="meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
-    project_id=os.environ['WATSONX_PROJECT_ID'],
-    params={'max_tokens':5000}
+# llm = ChatWatsonx(
+#     model_id="meta-llama/llama-3-3-70b-instruct",
+#     project_id=os.environ['WATSONX_PROJECT_ID'],
+#     params={'max_tokens':5000}
+# )
+
+llm = ChatOpenAI(
+    model=os.environ["MODEL_ID"],
+    api_key=os.environ["RH_API_KEY"],
+    base_url=os.environ["RH_ENDPOINT"],
+    max_tokens=5000,
 )
 
 class State(dict): 
