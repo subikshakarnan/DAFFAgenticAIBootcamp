@@ -13,7 +13,7 @@ load_dotenv()
 llm = ChatWatsonx(
     model_id="meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
     project_id=os.environ['WATSONX_PROJECT_ID'],
-    params={'max_tokens':5000}
+    params={'max_tokens':1500}
 )
 
 tools = [trending]
@@ -49,9 +49,9 @@ if __name__ == '__main__':
         # Use proper message format
         result = graph.invoke(
             {"messages": [
-                {'role':'system', 'content':'You are a helpful assistant designed to assist with user queries'}, 
+                {'role':'system', 'content':'You are a helpful assistant designed to assist with user queries. When a tool returns a result, use it to answer the user directly; do not call the same tool repeatedly.'},
                 {'role':'user', 'content':prompt}
-                ]}, 
-            config={"configurable": {"thread_id": 1234}}
-        ) 
+                ]},
+            config={"configurable": {"thread_id": 1234}, "recursion_limit": 8}
+        )
         print(Fore.LIGHTMAGENTA_EX + result['messages'][-1].content + Fore.RESET) 
